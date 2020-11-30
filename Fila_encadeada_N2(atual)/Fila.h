@@ -6,21 +6,22 @@
 typedef struct paciente
 {
     char *nome;
-    No *atras;
 } No;
 
 typedef struct fila
 {
     No *primeiro;
+    No *frente;    
+    No *atras;
     int cont;
     int capacidade;
 } Fila;
 
-No *criaNo(char *nome);
+/* No *criaNo(char *nome); */
 
 Fila *criaFila(int maxLength);
 
-Fila *enfileirar (Fila *f, No *novoNo);
+Fila *enfileirar (Fila *f, char *nome);
 
 Fila *desenfileira (Fila *f);
 

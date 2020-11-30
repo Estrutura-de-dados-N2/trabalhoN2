@@ -38,8 +38,6 @@ return opcao;
 int main ()
 {
 
-    //MaxLength = 10;
-
     Fila *fila;
     int opcao = 1, tamanhoMaximo = 0;
     bool filaCriada = false;
@@ -75,9 +73,7 @@ int main ()
                 printf("\nDigite o nome do paciente: ");
                 scanf("%s15", nome);
                 printf("\n>>>>> %s", nome);
-                No *no = criaNo(nome);
-                fila = enfileirar(fila, no);
-                printf("\n>>>> %s >>> %d >>> %d\n", fila->primeiro->nome, fila->capacidade, fila->cont);
+                fila = enfileirar(fila, nome);
             }
             else
             {
