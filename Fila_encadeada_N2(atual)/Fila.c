@@ -5,11 +5,12 @@
 
 No *criaNo(char *nome)
 {
-    No *no = (No*) malloc(15 * sizeof(No));
+    No *no = (No *)malloc(15 * sizeof(No));
 
     if (no != NULL)
     {
         no->nome = nome;
+        no->atras = NULL;      
         printf("\nNo criado");
     }
     return no;
@@ -17,12 +18,11 @@ No *criaNo(char *nome)
 
 Fila *criaFila(int maxLength)
 {
-    Fila *fila = (Fila*) malloc(sizeof(Fila));
+    Fila *fila = (Fila *)malloc(sizeof(Fila));
     if (fila != NULL)
     {
         fila->capacidade = maxLength;
         fila->primeiro = NULL;
-        fila->atras = NULL;
         fila->cont = 0;
 
         printf("\nA fila foi criada!\n");
@@ -30,42 +30,40 @@ Fila *criaFila(int maxLength)
     return fila;
 }
 
-Fila *enfileirar (Fila *f, No *novoNo)
+Fila *enfileirar(Fila *f, No *novoNo)
 {
-
+    int auxCont = f->cont;
     if (vazia(f))
     {
-        f->atras = NULL;
         f->primeiro = novoNo;
         f->cont++;
         return f;
     }
 
-    if(cheia(f))
+    if (cheia(f))
     {
         printf("\nA fila esta cheia!\n");
         return f;
     }
 
-
     do
     {
-        if (f->atras == NULL)
+        if (novoNo->atras == NULL)
         {
-            f->atras = novoNo;
+            novoNo->atras = novoNo;
             f->cont++;
+            return f;
         }
-    }
-    while (f->atras != NULL);
-
-    //f->atras = novoNo;
+        auxCont--;
+        printf("\n XXXXXXXX %s", novoNo->nome);
+    } while (auxCont >= 0);
 
     return f;
 }
 
-Fila *desenfileira (Fila *f)
+Fila *desenfileira(Fila *f)
 {
-    if(vazia(f))
+    if (vazia(f))
     {
         printf("\nA fila esta vazia! \n");
         return f;
@@ -76,7 +74,7 @@ Fila *desenfileira (Fila *f)
     return f;
 }
 
-Fila *esvazia (Fila *f)
+Fila *esvazia(Fila *f)
 {
     if (vazia(f))
     {
@@ -86,8 +84,7 @@ Fila *esvazia (Fila *f)
     do
     {
         free(f->atras);
-    }
-    while (f->atras != NULL);
+    } while (f->atras != NULL);
 
     if (vazia(f))
     {
@@ -100,20 +97,21 @@ Fila *esvazia (Fila *f)
     return f;
 }
 
-char *primeiro (Fila *f)
+char *primeiro(Fila *f)
 {
-    if(vazia(f))
+    if (vazia(f))
     {
         printf("\nNao ha ninguem na fila! ");
     }
     return f->primeiro->nome;
 }
 
-bool vazia (Fila *f)
+bool vazia(Fila *f)
 {
-    if(f != NULL)
+    if (f != NULL)
     {
-        if(f->cont == 0) return true;
+        if (f->cont == 0)
+            return true;
         return false;
     }
     else
@@ -123,11 +121,11 @@ bool vazia (Fila *f)
     }
 }
 
-bool cheia (Fila *f)
+bool cheia(Fila *f)
 {
-    if(f != NULL)
+    if (f != NULL)
     {
-        if(f->capacidade == f->cont)
+        if (f->capacidade == f->cont)
         {
             return true;
         }
@@ -136,7 +134,6 @@ bool cheia (Fila *f)
             printf("\n>>>>>> %d\n", f->cont);
             return false;
         }
-
     }
     else
     {
@@ -145,7 +142,7 @@ bool cheia (Fila *f)
     }
 }
 
-void imprimir(Fila* f)
+void imprimir(Fila *f)
 {
 
     if (!vazia(f))

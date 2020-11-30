@@ -6,11 +6,11 @@
 typedef struct paciente
 {
     char *nome;
+    No *atras;
 } No;
 
 typedef struct fila
 {
-    No *atras;
     No *primeiro;
     int cont;
     int capacidade;
