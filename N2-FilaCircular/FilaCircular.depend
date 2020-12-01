@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1606700560 source:c:\users\alexandre\desktop\curso_c\revisao prova\filacircular\main.c
+	<stdio.h>
+	<conio.h>
+	<math.h>
+	<time.h>
+	<stdlib.h>
+
