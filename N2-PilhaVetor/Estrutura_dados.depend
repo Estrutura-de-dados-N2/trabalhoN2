@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1605750232 source:c:\users\alexandre\desktop\curso_c\revisao prova\estrutura_dados\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Pilha.h"
+
+1605750282 c:\users\alexandre\desktop\curso_c\revisao prova\estrutura_dados\pilha.h
+
+1605750232 source:c:\users\alexandre\pictures\estrutura_dados\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Pilha.h"
+
+1605750282 c:\users\alexandre\pictures\estrutura_dados\pilha.h
+
