@@ -2,38 +2,31 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
-typedef struct paciente
-{
-    char *nome;
-} No;
-
 typedef struct fila
 {
-    No *primeiro;
-    No *frente;    
-    No *atras;
+    char *nome;
+    struct fila *primeiro;
+    struct fila *frente;    
+    struct fila *atras;
     int cont;
     int capacidade;
-} Fila;
+} No;
 
-/* No *criaNo(char *nome); */
+No *criaNo();
 
-Fila *criaFila(int maxLength);
+No *enfileirar (No *no, char *nome);
 
-Fila *enfileirar (Fila *f, char *nome);
+No *desenfileira (No *no);
 
-Fila *desenfileira (Fila *f);
+char *primeiro (No *no);
 
-Fila *esvazia (Fila *f);
+bool esvazia (No *no);
 
-char *primeiro (Fila *f);
+bool vazia (No *no);
 
-bool vazia (Fila *f);
+bool cheia (No *no);
 
-bool cheia (Fila *f);
-
-void imprimir (Fila *f);
+void imprimir (No *no);
 
 
 
